@@ -1,19 +1,29 @@
 # TODO
 
+
+# Database 
+
 == user ==
 id
 username
 ----------------------
+== organization ==
+id
+name
+logo
+----------------------
 == action ==
 id
-user_id
 organization_id
-Ações Propostas
-Responsável
-Inicio
-Termino
+name
+user_owner
+user_responsible
+start_date
+finish_date
 status_id
-Observation
+observation
+created
+updated
 ----------------------
 == status ==
 id
@@ -21,12 +31,4 @@ organization_id
 user_id
 name
 color
-
-[
-A iniciar
-Em andamento
-Concluída
-Atrasada
-Cancelada
-]
 ----------------------

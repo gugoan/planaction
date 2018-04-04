@@ -4,7 +4,9 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
+    'id' => 'planaction',
+    'name' => 'PlanAction',
+    'version' => '1.0',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -14,7 +16,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '70GGCgvoe2iH7YSB5wBpVwRD9AMkAVEz',
+            'cookieValidationKey' => '70GGCgvoe2iH7YSB5wBpVwRD9AMkAVEzplanaction',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
