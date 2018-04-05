@@ -5,25 +5,28 @@ namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\Response;
 use yii\filters\VerbFilter;
+use app\helpers\UiHelper;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
 class SiteController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['login'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -39,7 +42,7 @@ class SiteController extends Controller
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function actions()
     {
@@ -61,13 +64,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        UiHelper::alert('Flash message example 1', UiHelper::SUCCESS);
+        UiHelper::alert('Flash message example 2', UiHelper::SUCCESS);
+
+        UiHelper::callout('Callout example 1', UiHelper::WARNING);
+        UiHelper::callout('Callout example 2', UiHelper::WARNING);
+
         return $this->render('index');
     }
 
     /**
      * Login action.
      *
-     * @return Response|string
+     * @return string
      */
     public function actionLogin()
     {
@@ -75,12 +84,11 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
+        $this->layout = 'login';
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
-
-        $model->password = '';
         return $this->render('login', [
             'model' => $model,
         ]);
@@ -89,7 +97,7 @@ class SiteController extends Controller
     /**
      * Logout action.
      *
-     * @return Response
+     * @return string
      */
     public function actionLogout()
     {
@@ -101,7 +109,7 @@ class SiteController extends Controller
     /**
      * Displays contact page.
      *
-     * @return Response|string
+     * @return string
      */
     public function actionContact()
     {
