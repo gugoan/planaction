@@ -1,7 +1,18 @@
 # TODO
 
+User Permissions:
 
-# Database 
+Administrator: Full management / Create supervisors.
+Supervisor: Manages the organization and its users and actions.
+Basic: User created by the Supervisor and responsible for the respective action.
+
+# INTERFACE REFERENCE
+
+https://github.com/leda-ferreira/yii2-app-basic-admin-lte
+https://github.com/jakim/ig-monitoring#screenshots
+https://sentimnt.io/
+
+# DATABASE SCHEMA 
 
 == user ==
 id
