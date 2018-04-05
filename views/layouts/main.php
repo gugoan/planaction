@@ -134,15 +134,15 @@ $user = Yii::$app->user->identity;
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?= Url::to("@web/{$user->picture}") ?>" class="user-image" alt="User Image">
-                            <span class="hidden-xs"><?= $user->realname ?></span>
+                            <img src="" class="user-image" alt="User Image">
+                            <span class="hidden-xs"><?= Yii::$app->user->displayName?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="<?= Url::to("@web/{$user->picture}") ?>" class="img-circle" alt="User Image">
+                                <img src="" class="img-circle" alt="User Image">
                                 <p>
-                                    <?= $user->realname ?> - <?= $user->job ?>
+                                    realname - jobname
                                     <small>Member since Nov. 2012</small>
                                 </p>
                             </li>
@@ -185,23 +185,14 @@ $user = Yii::$app->user->identity;
         <section class="sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?= Url::to("@web/{$user->picture}") ?>" class="img-circle" alt="User Image">
+                    <img src="" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p><?= $user->realname ?></p>
+                    <p><?=Yii::$app->user->displayName?></p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                        </button>
-                    </span>
-                </div>
-            </form>
-            <?= $this->render('/layouts/menu')?>
+            <?= $this->render('@app/views/layouts/menu')?>
         </section>
     </aside>
     <!-- =============================================== -->
@@ -226,7 +217,7 @@ $user = Yii::$app->user->identity;
         reserved.
     </footer>
     <!-- =============================================== -->
-    <?= $this->render('/layouts/sidebar') ?>
+    <?= $this->render('@app/views/layouts/sidebar') ?>
 </div>
 <?php $this->endBody() ?>
 </body>
