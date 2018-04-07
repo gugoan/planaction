@@ -135,7 +135,7 @@ $user = Yii::$app->user->identity;
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="" class="user-image" alt="User Image">
+                            <!-- <img src="" class="user-image" alt="User Image"> -->
                             <span class="hidden-xs"><?= Yii::$app->user->displayName?></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -165,10 +165,12 @@ $user = Yii::$app->user->identity;
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <!-- <a href="#" class="btn btn-default btn-flat">Profile</a> -->
+                                    <?= Html::a('Perfil', ['/user/profile'], ['class'=>'btn btn-default btn-flat']) ?>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <!-- <a href="#" class="btn btn-default btn-flat">Sign out</a> -->
+                                    <?= Html::a('Sair', ['/user/logout'], ['class'=>'btn btn-default btn-flat','data-method' => 'POST']) ?>
                                 </div>
                             </li>
                         </ul>
@@ -183,6 +185,7 @@ $user = Yii::$app->user->identity;
         </nav>
     </header>
 
+    <?php if(!Yii::$app->user->isGuest){?>
     <aside class="main-sidebar">
         <section class="sidebar">
             <div class="user-panel">
@@ -198,6 +201,7 @@ $user = Yii::$app->user->identity;
             <?= $this->render('@app/views/layouts/menu')?>
         </section>
     </aside>
+    <?php }?>
     <!-- =============================================== -->
     <div class="content-wrapper">
         <section class="content-header clearfix" >
