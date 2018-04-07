@@ -1,3 +1,3 @@
 # PlanAction
 
-An open source Action Plan system
+An open source Action Plan System

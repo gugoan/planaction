@@ -8,17 +8,18 @@ use app\components\widgets\Nav;
 
 echo Nav::widget([
     'items' => [
-        '<li class="header">MAIN NAVIGATION</li>',
+        '<li class="header">MENU</li>',
         [
-            'label' => ficon('home', '<span>Home</span>'),
+            'label' => ficon('signal', '<span>Painel</span>'),
             'url' => ['/site/index']
         ],
         [
-            'label' => ficon('book', '<span>About</span>'),
-            'url' => ['/site/about']],
+            'label' => ficon('list', '<span>Ações</span>'),
+            'url' => ['/action/index']
+        ],
         [
-            'label' => ficon('comment', '<span>Contact</span>'),
-            'url' => ['/site/contact']
+            'label' => ficon('comment', '<span>Sobre</span>'),
+            'url' => ['/site/about']
         ],
         Yii::$app->user->isGuest ? (
             [

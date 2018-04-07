@@ -35,8 +35,8 @@ $user = Yii::$app->user->identity;
 <div class="wrapper">
     <header class="main-header">
         <a href="<?= Url::to() ?>" class="logo">
-            <span class="logo-mini"><b>A</b>LT</span>
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-mini"><b>P</b>A</span>
+            <span class="logo-lg"><b>Plan</b>Action</span>
         </a>
         <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
@@ -47,6 +47,7 @@ $user = Yii::$app->user->identity;
                 <span class="icon-bar"></span>
             </a>
 
+            <?php if(!Yii::$app->user->isGuest){?>
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
@@ -173,11 +174,12 @@ $user = Yii::$app->user->identity;
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
-                    <li>
+                    <!-- <li>
                         <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
+            <?php }?>
         </nav>
     </header>
 
@@ -188,8 +190,9 @@ $user = Yii::$app->user->identity;
                     <img src="" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
+                    <p><?=Yii::$app->user->identity->profile->full_name?></p>
                     <p><?=Yii::$app->user->displayName?></p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
                 </div>
             </div>
             <?= $this->render('@app/views/layouts/menu')?>
@@ -213,8 +216,7 @@ $user = Yii::$app->user->identity;
     </div>
     <footer class="main-footer">
         <div class="pull-right hidden-xs"><?= Yii::powered() ?></div>
-        <strong>Copyright &copy; <?= date('Y') ?> <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-        reserved.
+        <strong>Copyright &copy; <?= date('Y') ?> <a href="<?= Yii::$app->params['appSiteUrl']?>"><?= Yii::$app->params['appName']?></a>.</strong>
     </footer>
     <!-- =============================================== -->
     <?= $this->render('@app/views/layouts/sidebar') ?>
