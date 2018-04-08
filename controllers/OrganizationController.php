@@ -66,6 +66,8 @@ class OrganizationController extends Controller
     {
         $model = new Organization();
 
+        $model->user_owner =  Yii::$app->user->id;
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }

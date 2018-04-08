@@ -55,7 +55,7 @@ class Action extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'organization_id' => Yii::t('app', 'Organization ID'),
+            'organization_id' => Yii::t('app', 'Organization'),
             'name' => Yii::t('app', 'Name'),
             'user_owner' => Yii::t('app', 'User Owner'),
             'user_responsible' => Yii::t('app', 'User Responsible'),
